@@ -37,26 +37,31 @@ gate.addEventListener('click', openGate);
 gate.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openGate(); }});
 
 /* ---------- 1b. AUTO-SCROLL TOUR (stops the moment the guest takes over) ---------- */
-let asRAF = 0, asActive = false;
+let asRAF = 0, asActive = false, asListening = false;
 function startAutoScroll(){
   if (asActive) return;
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   asActive = true;
   const SPEED = 2.0;                  // px per frame ≈ 120px/s
   const step = () => {
     if (!asActive) return;
-    const max = document.documentElement.scrollHeight - window.innerHeight;
-    if (window.scrollY >= max - 1){ asActive = false; return; }   // reached the footer
-    // force instant scroll so the page's scroll-behavior:smooth doesn't fight the loop
-    window.scrollBy({ top: SPEED, left: 0, behavior: 'auto' });
+    const doc = document.documentElement;
+    const max = (doc.scrollHeight || document.body.scrollHeight) - window.innerHeight;
+    const y = window.scrollY || window.pageYOffset || doc.scrollTop;
+    if (y >= max - 1){ asActive = false; return; }   // reached the footer
+    // instant scroll so scroll-behavior:smooth doesn't fight the loop; works on mobile
+    window.scrollTo(0, y + SPEED);
     asRAF = requestAnimationFrame(step);
   };
   asRAF = requestAnimationFrame(step);
+  // attach the "guest took over" listeners only now, so the opening tap can't cancel it.
+  // stop on an actual scroll gesture (touchmove / wheel), not a mere tap.
+  if (!asListening){
+    asListening = true;
+    ['wheel','touchmove','keydown','mousedown'].forEach(ev =>
+      window.addEventListener(ev, stopAutoScroll, {passive:true}));
+  }
 }
 function stopAutoScroll(){ asActive = false; cancelAnimationFrame(asRAF); }
-// any manual intent hands control back to the guest for good
-['wheel','touchstart','keydown','mousedown'].forEach(ev =>
-  window.addEventListener(ev, stopAutoScroll, {passive:true}));
 
 /* ---------- 2. SCROLL REVEALS ---------- */
 const reveals = document.querySelectorAll('.reveal');
