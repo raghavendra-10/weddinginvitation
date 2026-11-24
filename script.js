@@ -30,8 +30,8 @@ function openGate(){
   setTimeout(() => body.classList.add('curtains-gone'), 3200);
   // kick off first reveal check
   setTimeout(revealCheck, 100);
-  // begin the gentle auto-scroll tour once the curtains have parted
-  setTimeout(startAutoScroll, 3800);
+  // begin the gentle auto-scroll tour once they're inside the invitation
+  setTimeout(startAutoScroll, 2800);
 }
 gate.addEventListener('click', openGate);
 gate.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openGate(); }});
@@ -42,12 +42,13 @@ function startAutoScroll(){
   if (asActive) return;
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   asActive = true;
-  const SPEED = 0.9;                  // px per frame ≈ 54px/s, calm & readable
+  const SPEED = 1.0;                  // px per frame ≈ 60px/s, calm & readable
   const step = () => {
     if (!asActive) return;
     const max = document.documentElement.scrollHeight - window.innerHeight;
     if (window.scrollY >= max - 1){ asActive = false; return; }   // reached the footer
-    window.scrollBy(0, SPEED);
+    // force instant scroll so the page's scroll-behavior:smooth doesn't fight the loop
+    window.scrollBy({ top: SPEED, left: 0, behavior: 'auto' });
     asRAF = requestAnimationFrame(step);
   };
   asRAF = requestAnimationFrame(step);
