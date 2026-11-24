@@ -42,7 +42,7 @@ function startAutoScroll(){
   if (asActive) return;
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   asActive = true;
-  const SPEED = 1.0;                  // px per frame ≈ 60px/s, calm & readable
+  const SPEED = 2.0;                  // px per frame ≈ 120px/s
   const step = () => {
     if (!asActive) return;
     const max = document.documentElement.scrollHeight - window.innerHeight;
