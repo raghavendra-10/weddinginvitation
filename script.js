@@ -30,9 +30,32 @@ function openGate(){
   setTimeout(() => body.classList.add('curtains-gone'), 3200);
   // kick off first reveal check
   setTimeout(revealCheck, 100);
+  // begin the gentle auto-scroll tour once the curtains have parted
+  setTimeout(startAutoScroll, 3800);
 }
 gate.addEventListener('click', openGate);
 gate.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openGate(); }});
+
+/* ---------- 1b. AUTO-SCROLL TOUR (stops the moment the guest takes over) ---------- */
+let asRAF = 0, asActive = false;
+function startAutoScroll(){
+  if (asActive) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  asActive = true;
+  const SPEED = 0.9;                  // px per frame ≈ 54px/s, calm & readable
+  const step = () => {
+    if (!asActive) return;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    if (window.scrollY >= max - 1){ asActive = false; return; }   // reached the footer
+    window.scrollBy(0, SPEED);
+    asRAF = requestAnimationFrame(step);
+  };
+  asRAF = requestAnimationFrame(step);
+}
+function stopAutoScroll(){ asActive = false; cancelAnimationFrame(asRAF); }
+// any manual intent hands control back to the guest for good
+['wheel','touchstart','keydown','mousedown'].forEach(ev =>
+  window.addEventListener(ev, stopAutoScroll, {passive:true}));
 
 /* ---------- 2. SCROLL REVEALS ---------- */
 const reveals = document.querySelectorAll('.reveal');

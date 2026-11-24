@@ -20,12 +20,18 @@
   <span class="music-icon"><span></span><span></span><span></span><span></span></span>
 </button>
 
-<!-- responsive heart clip for the scratch card -->
+<!-- reusable SVG icons + heart clip for the scratch card -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <clipPath id="heartClip" clipPathUnits="objectBoundingBox">
       <path d="M0.5,1 C0.15,0.74 0,0.5 0,0.3 C0,0.12 0.15,0 0.3,0 C0.4,0 0.47,0.07 0.5,0.17 C0.53,0.07 0.6,0 0.7,0 C0.85,0 1,0.12 1,0.3 C1,0.5 0.85,0.74 0.5,1 Z"/>
     </clipPath>
+    <symbol id="ico-heart" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 20.3c-.7 0-1.4-.3-1.9-.8L3.6 13C1.5 10.9 1.5 7.5 3.6 5.4 5.7 3.3 9.1 3.3 11.2 5.4l.8.8.8-.8c2.1-2.1 5.5-2.1 7.6 0 2.1 2.1 2.1 5.5 0 7.6l-6.5 6.5c-.5.5-1.2.8-1.9.8Z"/>
+    </symbol>
+    <symbol id="ico-arrow" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 16 16 8M9.5 7.5H16.5V14.5"/>
+    </symbol>
   </defs>
 </svg>
 
@@ -152,9 +158,9 @@
     <div class="hero-content reveal">
       <p class="blessings">Srirasthu &nbsp;•&nbsp; Subhamasthu &nbsp;•&nbsp; Avighnamasthu</p>
       <p class="divine">With the Divine Blessings of<br/><em>Sri Dasari Ramudu &amp; Smt. Annapurna</em></p>
-      <span class="mini-heart">♥</span>
+      <span class="mini-heart"><svg class="ico-heart"><use href="#ico-heart"/></svg></span>
       <p class="getting">We're getting married</p>
-      <div class="hdiv" aria-hidden="true"><i></i><span>♥</span><i></i></div>
+      <div class="hdiv" aria-hidden="true"><i></i><svg class="ico-heart"><use href="#ico-heart"/></svg><i></i></div>
 
       <h1 class="names">
         <span class="name">Rahul Sandeep Sai</span>
@@ -259,7 +265,7 @@
     <div class="sec-head reveal">
       <p class="eyebrow">With joyful hearts</p>
       <h2 class="sec-title">The Couple</h2>
-      <div class="hdiv" aria-hidden="true"><i></i><span>♥</span><i></i></div>
+      <div class="hdiv" aria-hidden="true"><i></i><svg class="ico-heart"><use href="#ico-heart"/></svg><i></i></div>
     </div>
     <div class="couple-grid">
       <figure class="person reveal">
@@ -270,7 +276,7 @@
           <p class="person-parents">Eldest son of<br/>Sri Vattikuti Satyanarayana &amp;<br/>Smt. Vattikuti Venkata Durga Lakshmi</p>
         </figcaption>
       </figure>
-      <div class="couple-amp reveal"><span>♥</span></div>
+      <div class="couple-amp reveal"><svg class="ico-heart"><use href="#ico-heart"/></svg></div>
       <figure class="person reveal">
         <div class="person-photo"><img src="images/bride.jpg" alt="Arshitha, the bride" loading="lazy" /></div>
         <figcaption>
@@ -289,9 +295,9 @@
         to the auspicious wedding of <em>Rahul Sandeep Sai</em> &amp; <em>Arshitha</em>.
         As they begin their journey together in faith and love,
         we thank you for being part of this blessed occasion.</p>
-      <div class="hdiv" aria-hidden="true"><i></i><span>♥</span><i></i></div>
+      <div class="hdiv" aria-hidden="true"><i></i><svg class="ico-heart"><use href="#ico-heart"/></svg><i></i></div>
       <h2 class="scratch-title">Scratch to Reveal</h2>
-      <div class="hdiv" aria-hidden="true"><i></i><span>♥</span><i></i></div>
+      <div class="hdiv" aria-hidden="true"><i></i><svg class="ico-heart"><use href="#ico-heart"/></svg><i></i></div>
       <div class="heart-frame">
         <div class="heart-scratch" id="scratchCard">
           <div class="scratch-reveal">
@@ -321,7 +327,7 @@
     </div>
     <div class="count-body reveal">
       <h2 class="sec-title script-head count-title">Counting Down to Forever</h2>
-      <div class="hdiv" aria-hidden="true"><i></i><span>♥</span><i></i></div>
+      <div class="hdiv" aria-hidden="true"><i></i><svg class="ico-heart"><use href="#ico-heart"/></svg><i></i></div>
       <div class="count-grid" id="countGrid">
         <div class="count-cell"><span class="cbox"><span class="cnum" id="cd-days">00</span></span><span class="clab">Days</span></div>
         <div class="count-cell"><span class="cbox"><span class="cnum" id="cd-hours">00</span></span><span class="clab">Hours</span></div>
@@ -336,7 +342,7 @@
     <div class="sec-head reveal">
       <span class="sec-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 6.5 V12 L15.5 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
       <h2 class="sec-title script-head">Program Timeline</h2>
-      <div class="hdiv" aria-hidden="true"><i></i><span>♥</span><i></i></div>
+      <div class="hdiv" aria-hidden="true"><i></i><svg class="ico-heart"><use href="#ico-heart"/></svg><i></i></div>
     </div>
     <div class="timeline">
       <div class="event-item reveal">
@@ -344,7 +350,7 @@
         <div class="event-card">
           <h3>Sumuhurtham</h3>
           <p class="event-time">Sunday, 13 December 2026 · 08:08 AM</p>
-          <p class="event-where">SP Raju Convention, Rajanagaram ♥</p>
+          <p class="event-where">SP Raju Convention, Rajanagaram</p>
         </div>
       </div>
       <div class="event-item reveal">
@@ -362,7 +368,7 @@
   <section class="gallery" id="gallery">
     <div class="sec-head reveal">
       <h2 class="sec-title script-head">Our Moments</h2>
-      <div class="hdiv" aria-hidden="true"><i></i><span>♥</span><i></i></div>
+      <div class="hdiv" aria-hidden="true"><i></i><svg class="ico-heart"><use href="#ico-heart"/></svg><i></i></div>
     </div>
     <div class="gal-grid">
       <figure class="reveal"><img src="images/couple-1.jpg" alt="Couple" loading="lazy" /></figure>
@@ -377,7 +383,7 @@
     <div class="sec-head reveal">
       <span class="sec-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21 C12 21 5 14.6 5 9.5 C5 5.9 8.1 3 12 3 C15.9 3 19 5.9 19 9.5 C19 14.6 12 21 12 21 Z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="9.5" r="2.6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
       <h2 class="sec-title script-head">Venue</h2>
-      <div class="hdiv" aria-hidden="true"><i></i><span>♥</span><i></i></div>
+      <div class="hdiv" aria-hidden="true"><i></i><svg class="ico-heart"><use href="#ico-heart"/></svg><i></i></div>
     </div>
     <div class="venue-card reveal">
       <h3>SP Raju Convention</h3>
@@ -389,14 +395,14 @@
           referrerpolicy="no-referrer-when-downgrade"
           src="https://www.google.com/maps?q=SP%20Raju%20Convention%20Rajanagaram&output=embed"></iframe>
       </div>
-      <a class="pill-btn" id="mapBtn" href="https://www.google.com/maps/search/?api=1&query=SP+Raju+Convention+Rajanagaram" target="_blank" rel="noopener">Open in Google Maps ↗</a>
+      <a class="pill-btn" id="mapBtn" href="https://www.google.com/maps/search/?api=1&query=SP+Raju+Convention+Rajanagaram" target="_blank" rel="noopener">Open in Google Maps&nbsp;<svg class="ico-arrow"><use href="#ico-arrow"/></svg></a>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="footer">
     <div class="reveal">
-      <div class="heart-sep">♥</div>
+      <div class="heart-sep"><svg class="ico-heart"><use href="#ico-heart"/></svg></div>
       <p class="foot-names">Rahul Sandeep Sai <span>&amp;</span> Arshitha</p>
       <p class="foot-compliments">With Best Compliments from<br/><em>Mallika &amp; Raghavendra</em><br/>and Near &amp; Dear</p>
       <p class="foot-thanks">Your presence and blessings are the greatest gift of all.</p>

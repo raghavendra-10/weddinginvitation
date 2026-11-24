@@ -126,10 +126,18 @@ body.curtains-gone .curtains{display:none}
 .music-icon{display:flex;align-items:flex-end;gap:3px;height:19px}
 .music-icon span{width:3px;height:5px;background:var(--gold-deep);border-radius:2px}
 .music-btn.playing .music-icon span{animation:eq .9s ease-in-out infinite}
-.music-icon span:nth-child(2){animation-delay:.2s}
-.music-icon span:nth-child(3){animation-delay:.4s}
-.music-icon span:nth-child(4){animation-delay:.1s}
+/* different durations + negative offsets so the bars never move in unison */
+.music-btn.playing .music-icon span:nth-child(1){animation-duration:.72s;animation-delay:-.20s}
+.music-btn.playing .music-icon span:nth-child(2){animation-duration:1.08s;animation-delay:-.50s}
+.music-btn.playing .music-icon span:nth-child(3){animation-duration:.82s;animation-delay:-.08s}
+.music-btn.playing .music-icon span:nth-child(4){animation-duration:1.20s;animation-delay:-.34s}
 @keyframes eq{0%,100%{height:4px}50%{height:18px}}
+
+/* inline SVG icons (replacing ♥ / ↗ glyphs) */
+.ico-heart{width:1em;height:1em;display:inline-block;vertical-align:-.14em;fill:currentColor}
+.ico-arrow{width:.82em;height:.82em;display:inline-block;vertical-align:-.04em}
+.hdiv .ico-heart{flex:none;width:.82rem;height:.82rem;color:var(--green)}
+.couple-amp .ico-heart{display:inline-block;animation:beat 1.8s infinite}
 
 /* ======================= MAIN ======================= */
 .main{position:relative;z-index:1}
